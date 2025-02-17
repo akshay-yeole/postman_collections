@@ -1,0 +1,541 @@
+{
+	"info": {
+		"_postman_id": "67bef08b-b636-410a-9a57-d7c8a501b841",
+		"name": "ProductsApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32795243"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"CAtegories Found\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Categories Not Found\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ProductsApiUrl}}/api/Categories",
+							"host": [
+								"{{ProductsApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/Categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"Id\": \"e9b39d3a-8d1e-4d1f-90d4-7f5f3a7e98b3\",\n        \"CategoryName\": \"Electronics\",\n        \"Description\": \"Devices and gadgets related to technology\"\n    },\n    {\n        \"Id\": \"a2c3f7d6-9a3b-4d5e-bf5c-8e6b9d4b8a2d\",\n        \"CategoryName\": \"Books\",\n        \"Description\": \"A wide range of books from different genres\"\n    },\n    {\n        \"Id\": \"1b7d9e8f-3e1c-4f5a-8a3d-0b8f7a6c9e2d\",\n        \"CategoryName\": \"Clothing\",\n        \"Description\": \"Apparel and fashion items\"\n    }\n]"
+						},
+						{
+							"name": "Get Categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/Categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\r\n    \"title\": \"Not Found\",\r\n    \"status\": 404,\r\n    \"traceId\": \"00-76dc5228bf90cabcaa614d9f3fc6e1bb-3bf7d9f564d0b219-00\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Category",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CategoryName\": \"{{CategoryName}}\",\r\n    \"Description\": \"{{Description}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ProductsApiUrl}}/api/Categories",
+							"host": [
+								"{{ProductsApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"CategoryName\": \"Clothing\",\r\n    \"Description\": \"Apparel and fashion items\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/Categories",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"1b7d9e8f-3e1c-4f5a-8a3d-0b8f7a6c9e2d\",\n    \"CategoryName\": \"Clothing\",\n    \"Description\": \"Apparel and fashion items\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"CategoryName\": \"Electronics\",\r\n    \"Description\": \"Devices and gadgets related to technology\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ProductsApiUrl}}/api/Categories/{{categoryId}}",
+							"host": [
+								"{{ProductsApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Categories",
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"CategoryName\": \"Electronics Items\",\r\n    \"Description\": \"Devices and gadgets related to technology\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/Categories/{{categoryId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Update Category",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\r\n    \"CategoryName\": \"Electronics\",\r\n    \"Description\": \"Devices and gadgets related to technology\"\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/Categories/{{categoryId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\r\n    \"title\": \"Not Found\",\r\n    \"status\": 404,\r\n    \"traceId\": \"00-76dc5228bf90cabcaa614d9f3fc6e1bb-3bf7d9f564d0b219-00\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ProductsApiUrl}}/api/Categories/a2c3f7d6-9a3b-4d5e-bf5c-8e6b9d4b8a2d",
+							"host": [
+								"{{ProductsApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Categories",
+								"a2c3f7d6-9a3b-4d5e-bf5c-8e6b9d4b8a2d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/Categories/{{categoryId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Delete Category",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/Categories/{{categoryId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\r\n    \"title\": \"Not Found\",\r\n    \"status\": 404,\r\n    \"traceId\": \"00-f889e5504d2f543e56d8e9fcfec16c5d-a6f2cfe83c933bb9-00\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get CategoryById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{Token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ProductsApiUrl}}/api/Categories/{{categoryId}}",
+							"host": [
+								"{{ProductsApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Categories",
+								"{{categoryId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get CategoryById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/Categories/{{categoryId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"1b7d9e8f-3e1c-4f5a-8a3d-0b8f7a6c9e2d\",\r\n    \"categoryName\": \"Clothing\",\r\n    \"description\": \"Apparel and fashion items\"\r\n}"
+						},
+						{
+							"name": "Get CategoryById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/Categories/{{categoryId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"Categories",
+										"{{categoryId}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n    \"type\": \"https://tools.ietf.org/html/rfc9110#section-15.5.5\",\r\n    \"title\": \"Not Found\",\r\n    \"status\": 404,\r\n    \"traceId\": \"00-f889e5504d2f543e56d8e9fcfec16c5d-a6f2cfe83c933bb9-00\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "LoginUser",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = pm.response.json();\r",
+									"pm.globals.set(\"Token\", jsonResponse.token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@test.com\",\r\n  \"password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AuthApiUrl}}/api/Auth/login",
+							"host": [
+								"{{AuthApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"sampleUser2\",\r\n  \"email\": \"sampleUser2@test.com\",\r\n  \"password\": \"sampleUser2\",\r\n  \"confirmPassword\": \"sampleUser2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AuthApiUrl}}/api/Auth/register",
+							"host": [
+								"{{AuthApiUrl}}"
+							],
+							"path": [
+								"api",
+								"Auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
