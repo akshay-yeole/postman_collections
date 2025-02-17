@@ -1,0 +1,62 @@
+[
+  {
+    "CategoryName": "Electronics",
+    "Description": "Various electronic items"
+  },
+  {
+    "CategoryName": "Furniture",
+    "Description": "Home and office furniture"
+  },
+  {
+    "CategoryName": "Clothing",
+    "Description": "Apparel and accessories"
+  },
+  {
+    "CategoryName": "Books",
+    "Description": "A wide range of books"
+  },
+  {
+    "CategoryName": "Toys",
+    "Description": "Toys and games for children"
+  },
+  {
+    "CategoryName": "Sports",
+    "Description": "Sports equipment and gear"
+  },
+  {
+    "CategoryName": "Food",
+    "Description": "Groceries and gourmet items"
+  },
+  {
+    "CategoryName": "Health",
+    "Description": "Health and wellness products"
+  },
+  {
+    "CategoryName": "Beauty",
+    "Description": "Beauty and personal care products"
+  },
+  {
+    "CategoryName": "Automotive",
+    "Description": "Automotive parts and accessories"
+  },
+  {
+    "CategoryName": "Gardening",
+    "Description": "Gardening tools and supplies"
+  },
+  {
+    "CategoryName": "Office Supplies",
+    "Description": "Office equipment and supplies"
+  },
+  {
+    "CategoryName": "Pet Supplies",
+    "Description": "Products for pets"
+  },
+  {
+    "CategoryName": "Music",
+    "Description": "Musical instruments and accessories"
+  },
+  {
+    "CategoryName": "Jewelry",
+    "Description": "Jewelry and watches"
+  }
+]
